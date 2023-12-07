@@ -1,11 +1,12 @@
-
-
 const Todo = () => {
   return (
-    <section>
-      <div>Todo App</div>
-    </section>
-  )
-}
+    <section className="mt-10  bg-red-500">
+      <div className="flex justify-center ">
+        <h1>Simple Todo App</h1>
 
-export default Todo
+      </div>
+    </section>
+  );
+};
+
+export default Todo;
