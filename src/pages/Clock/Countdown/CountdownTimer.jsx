@@ -48,10 +48,10 @@ const CountdownTimer = () => {
   return (
     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
       <div className=" space-y-4 md:space-y-6 sm:p-5">
-        <div className="flex gap-10 justify-center flex-col items-center py-2">
+        <div className="flex gap-10 justify-center flex-col items-center ">
           {countDownSeconds !== 0 ? (
             <>
-              <h1 className="text-xl font-bold md:text-2xl ">
+              <h1 className="text-2xl font-bold md:text-3xl ">
                 {countDownSeconds <= 1
                   ? `${countDownSeconds} second`
                   : `${countDownSeconds} seconds`}
