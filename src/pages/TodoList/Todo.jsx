@@ -35,6 +35,8 @@ const Todo = () => {
         return index !== i;
       });
       setTodoList(filtered);
+      setEditIndex(null)
+      setUserInput("")
     }
   };
 
@@ -73,11 +75,11 @@ const Todo = () => {
               value={userInput}
             />
             <div className="flex gap-10 justify-center">
-              <Button onClick={handleAddTask}>
+              <Button color={editIndex === null ? "bg-blue-600" : "bg-amber-600"}onClick={handleAddTask}>
                 {editIndex === null ? "Add task" : "Edit task"}
               </Button>
               {todoList.length > 0 && (
-                <Button onClick={handleClearAllTask}>Clear All</Button>
+                <Button color={"bg-red-600"} onClick={handleClearAllTask}>Clear All</Button>
               )}
             </div>
             <div className={`${todoList.length > 0 ? "border-2 h-auto" : ""}`}>
@@ -86,6 +88,7 @@ const Todo = () => {
                   key={index}
                   number={index}
                   task={task}
+                  editIndex={editIndex}
                   handleDeleteTask={() => handleDeleteTask(index)}
                   handleEditTask={() => handleEditTask(index)}
                 />

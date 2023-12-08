@@ -1,9 +1,9 @@
-const Button = ({ children, onClick }) => {
+const Button = ({ children, onClick, color }) => {
   return (
     <div>
       <button
         onClick={onClick}
-        className="px-5 py-2 bg-blue-600 text-white rounded-lg "
+        className={`px-3 py-2 mx-2 text-white rounded-lg ${color} md:px-5 `}
       >
         {children}
       </button>

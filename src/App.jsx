@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Todo from "./pages/TodoList/Todo";
 import Calculator from "./pages/Calculator/Calculator";
-import Clock from "./pages/Clock/Clock";
+import Clock from "./pages/Clock/ClockPage";
 import Weather from "./pages/Weather/Weather";
 
 function App() {
