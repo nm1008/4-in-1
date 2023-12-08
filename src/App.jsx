@@ -3,10 +3,10 @@ import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Todo from "./pages/Todo";
-import Calculator from "./pages/Calculator";
-import Clock from "./pages/Clock";
-import Weather from "./pages/Weather";
+import Todo from "./pages/TodoList/Todo";
+import Calculator from "./pages/Calculator/Calculator";
+import Clock from "./pages/Clock/Clock";
+import Weather from "./pages/Weather/Weather";
 
 function App() {
   return (
