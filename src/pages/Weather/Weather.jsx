@@ -1,27 +1,37 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../../components/Button";
+import WeatherInfo from "./WeatherInfo/WeatherInfo";
 
 const Weather = () => {
   const [country, setCountry] = useState("Manila");
   const [selectedCountry, setSelectedCountry] = useState([]);
+  console.log(selectedCountry)
 
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${country},&appid=${
+        `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${
           import.meta.env.VITE_API_KEY
-        }`
+        }&units=metric`
       )
       .then((res) => setSelectedCountry(res.data))
       .catch((error) => console.error("Error fetching weather data:", error));
-  }, [country]);
+  }, []);
 
-  const handleSearchCountry = () => {
-    console.log(country);
-    console.log(selectedCountry);
+  const handleSearchCountry = async () => {
+    try {
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${
+          import.meta.env.VITE_API_KEY
+        }&units=metric`
+      );
+      setSelectedCountry(res.data);
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
   };
-
+  
   return (
     <section className="container mx-auto my-10">
       <div className="border-2 shadow-md flex flex-col items-center justify-center my-12 mx-24 lg:py-0 ">
@@ -33,6 +43,7 @@ const Weather = () => {
             placeholder="Search city name here.."
             onChange={(e) => setCountry(e.target.value)}
           />
+
           <Button onClick={handleSearchCountry} color={"bg-blue-600"}>
             Search
           </Button>
@@ -41,6 +52,7 @@ const Weather = () => {
       <div className="flex flex-wrap items-center gap-10 md:flex-nowrap">
         <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
           <h1 className="text-center text-3xl font-bold mb-5">Weather</h1>
+          <WeatherInfo data={selectedCountry} />
         </div>
         <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
           <h1 className="text-center text-3xl font-bold mb-5">Details</h1>
