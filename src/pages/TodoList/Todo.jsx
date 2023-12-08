@@ -6,21 +6,52 @@ import TodoTask from "../../components/TodoTask";
 const Todo = () => {
   const [userInput, setUserInput] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
 
   const handleAddTask = () => {
     if (userInput === "") {
       alert("Please add a task");
       return;
     }
-    setTodoList((prevTodo) => [...prevTodo, userInput]);
+
+    if (editIndex !== null) {
+      const updatedList = [...todoList];
+      updatedList[editIndex] = userInput;
+      setTodoList(updatedList);
+      setEditIndex(null);
+    } else {
+      setTodoList((prevTodo) => [...prevTodo, userInput]);
+    }
     setUserInput("");
   };
 
   const handleDeleteTask = (index) => {
-    const filtered = todoList.filter((task, i) => {
-      return index !== i;
-    });
-    setTodoList(filtered);
+    const confirm = window.confirm(
+      `Are you sure you want to delete task ${index + 1}?`
+    );
+
+    if (confirm) {
+      const filtered = todoList.filter((task, i) => {
+        return index !== i;
+      });
+      setTodoList(filtered);
+    }
+  };
+
+  const handleClearAllTask = () => {
+    const confirm = window.confirm(
+      "Are you sure you want to clear all the task?"
+    );
+    if (confirm) {
+      setTodoList([]);
+      setUserInput("");
+      setEditIndex(null);
+    }
+  };
+
+  const handleEditTask = (index) => {
+    setUserInput(todoList[index]);
+    setEditIndex(index);
   };
 
   return (
@@ -42,16 +73,21 @@ const Todo = () => {
               value={userInput}
             />
             <div className="flex gap-10 justify-center">
-              <Button onClick={handleAddTask}>Add a task</Button>
-              <Button>Clear All</Button>
+              <Button onClick={handleAddTask}>
+                {editIndex === null ? "Add task" : "Edit task"}
+              </Button>
+              {todoList.length > 0 && (
+                <Button onClick={handleClearAllTask}>Clear All</Button>
+              )}
             </div>
-            <div className="border-2 h-24">
+            <div className={`${todoList.length > 0 ? "border-2 h-auto" : ""}`}>
               {todoList.map((task, index) => (
                 <TodoTask
                   key={index}
                   number={index}
                   task={task}
                   handleDeleteTask={() => handleDeleteTask(index)}
+                  handleEditTask={() => handleEditTask(index)}
                 />
               ))}
             </div>
