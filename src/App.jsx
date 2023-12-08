@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 import Todo from "./pages/TodoList/Todo";
 import Calculator from "./pages/Calculator/Calculator";
 import Clock from "./pages/Clock/Clock";

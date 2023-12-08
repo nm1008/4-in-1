@@ -1,6 +1,7 @@
-import Button from "../../components/Button/button";
+import Button from "../../components/Button";
 
 import { useState } from "react";
+import TodoTask from "../../components/TodoTask";
 
 const Todo = () => {
   const [userInput, setUserInput] = useState("");
@@ -12,7 +13,14 @@ const Todo = () => {
       return;
     }
     setTodoList((prevTodo) => [...prevTodo, userInput]);
-    setUserInput("")
+    setUserInput("");
+  };
+
+  const handleDeleteTask = (index) => {
+    const filtered = todoList.filter((task, i) => {
+      return index !== i;
+    });
+    setTodoList(filtered);
   };
 
   return (
@@ -31,12 +39,22 @@ const Todo = () => {
               className=" w-full h-12 pl-5 rounded-md font-md border-4"
               placeholder="Enter a task"
               onChange={(e) => setUserInput(e.target.value)}
+              value={userInput}
             />
             <div className="flex gap-10 justify-center">
               <Button onClick={handleAddTask}>Add a task</Button>
               <Button>Clear All</Button>
             </div>
-            <div className="border-2 h-24"></div>
+            <div className="border-2 h-24">
+              {todoList.map((task, index) => (
+                <TodoTask
+                  key={index}
+                  number={index}
+                  task={task}
+                  handleDeleteTask={() => handleDeleteTask(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
