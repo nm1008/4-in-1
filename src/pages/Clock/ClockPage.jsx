@@ -1,6 +1,6 @@
-import Clock from "./Clock";
+import Clock from "./ClockFolder/Clock";
 import CountdownTimer from "./Countdown/CountdownTimer";
-import Stopwatch from "./Stopwatch";
+import Stopwatch from "./Stopwatch/Stopwatch";
 
 const ClockPage = () => {
   return (
@@ -10,11 +10,11 @@ const ClockPage = () => {
         <Clock />
       </div>
       <div className="flex flex-wrap items-center gap-10 md:flex-nowrap">
-        <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
+        <div className="w-full flex items-center justify-center flex-col md:w-1/2 ">
           <h1 className="text-center text-3xl font-bold mb-5">Countdown Timer</h1>
           <CountdownTimer />
         </div>
-        <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
+        <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5 ">
           <h1 className="text-center text-3xl font-bold mb-5">Stopwatch</h1>
           <Stopwatch />
         </div>

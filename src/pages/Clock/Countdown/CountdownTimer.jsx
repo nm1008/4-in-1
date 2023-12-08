@@ -18,6 +18,7 @@ const CountdownTimer = () => {
         setTimer(false);
       }
     };
+    
     intervalId = setInterval(() => {
       handleCountDown();
     }, 1000);
