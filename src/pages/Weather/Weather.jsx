@@ -69,7 +69,7 @@ const Weather = () => {
           {loading === true ? (
             <h1>Loading details</h1>
           ) : (
-            <WeatherInfo data={selectedCountry} />
+            <WeatherInfo data={selectedCountry}/>
           )}
         </div>
         <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
