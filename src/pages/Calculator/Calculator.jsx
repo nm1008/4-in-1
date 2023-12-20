@@ -5,8 +5,10 @@ const Calculator = () => {
   const [result, setResult] = useState("");
 
   const handleButtonClick = (value) => {
-    if (input === "0") {
+    if (input === "0" && value !== ".") {
       setInput(value);
+    } else if (value === "." && input.includes(".")) {
+      return;
     } else {
       setInput((prevInput) => prevInput + value);
     }
@@ -38,7 +40,7 @@ const Calculator = () => {
   };
 
   return (
-    <section className="container mx-auto flex flex-col justify-center mt-10 w-full  lg:w-1/8  md:w-1/2 ">
+    <section className="container mx-auto flex flex-col justify-center mt-10 w-full  lg:w-1/4  md:w-1/2 ">
       <div className=" bg-blue-500 p-3 m-2 rounded-lg ">
         <div className="flex flex-col bg-white rounded-lg mx-2 my-5 p-5">
           <h1 className="grow text-end font-bold text-lg ">{input}</h1>
@@ -113,13 +115,13 @@ const Calculator = () => {
           </button>
           <button
             className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("7")}
+            onClick={() => handleButtonClick("-")}
           >
             -
           </button>
           <button
             className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("-")}
+            onClick={() => handleButtonClick(".")}
           >
             .
           </button>
