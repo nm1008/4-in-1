@@ -65,7 +65,7 @@ const Todo = () => {
         >
           Simple Todo App
         </a>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
+        <div className="w-full p-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
           <div className=" space-y-4 md:space-y-6 sm:p-8">
             <input
               type="text"
@@ -75,14 +75,14 @@ const Todo = () => {
               value={userInput}
             />
             <div className="flex gap-10 justify-center">
-              <Button color={editIndex === null ? "bg-blue-600" : "bg-amber-600"}onClick={handleAddTask}>
+              <Button color={editIndex === null ? "bg-blue-600" : "bg-amber-600"} onClick={handleAddTask}>
                 {editIndex === null ? "Add task" : "Edit task"}
               </Button>
               {todoList.length > 0 && (
                 <Button color={"bg-red-600"} onClick={handleClearAllTask}>Clear All</Button>
               )}
             </div>
-            <div className={`${todoList.length > 0 ? "border-2 h-auto" : ""}`}>
+            <div className={`${todoList.length > 0 ? "border-2" : ""}`}>
               {todoList.map((task, index) => (
                 <TodoTask
                   key={index}

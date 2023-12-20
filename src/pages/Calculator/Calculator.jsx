@@ -26,16 +26,22 @@ const Calculator = () => {
   };
 
   const handleDelete = () => {
-    setInput(input.slice(0, -1))
-  }
+    if (result !== "") {
+      setInput("0");
+      setResult("");
+    } else {
+      setInput((prevInput) => {
+        const newInput = prevInput.slice(0, -1);
+        return newInput === "" ? "0" : newInput;
+      });
+    }
+  };
 
   return (
-    <section className="container mx-auto flex flex-col justify-center mt-10 w-full  lg:w-1/3  md:w-1/2 ">
-      <div className=" bg-blue-500 p-5 mx-5 rounded-lg">
+    <section className="container mx-auto flex flex-col justify-center mt-10 w-full  lg:w-1/8  md:w-1/2 ">
+      <div className=" bg-blue-500 p-3 m-2 rounded-lg ">
         <div className="flex flex-col bg-white rounded-lg mx-2 my-5 p-5">
-          <h1 className="grow text-end font-bold text-lg ">
-           {input}
-          </h1>
+          <h1 className="grow text-end font-bold text-lg ">{input}</h1>
           <h1 className="grow text-end font-bold text-lg ">{result}</h1>
         </div>
         <div className="grid grid-cols-4 ">
@@ -57,7 +63,8 @@ const Calculator = () => {
           >
             9
           </button>
-          <button className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+          <button
+            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
             onClick={handleDelete}
           >
             Del

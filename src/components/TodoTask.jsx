@@ -1,4 +1,4 @@
-const todoButton = "px-5 py-2 rounded-lg text-white";
+const todoButton = "px-2 py-1 rounded-lg text-white md:p-3";
 
 const TodoTask = ({
   task,
@@ -8,11 +8,11 @@ const TodoTask = ({
   editIndex,
 }) => {
   return (
-    <div className="flex justify-between items-center p-5 ">
-      <h1>
+    <div className="flex flex-col w-full gap-3 justify-between items-center py-3 md:flex-row ">
+      <h1 className="font-bold md:ml-5">
         {number + 1}. {task}
       </h1>
-      <div className="flex gap-2">
+      <div className="flex gap-2 md:mr-5">
         {editIndex === null && (
           <button
             onClick={handleEditTask}
