@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { Link } from "react-router-dom";
-import { CiHome } from "react-icons/ci";
 import { FaCalculator } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
 import { CiClock2 } from "react-icons/ci";
@@ -37,12 +36,8 @@ const Navbar = () => {
             <div className="flex items-baseline space-x-4 ">
               <ul className="flex gap-2">
                 <li className={navlinkStyle}>
-                  <CiHome size={24} className="shrink-0" />
-                  <Link to="/">Home</Link>
-                </li>
-                <li className={navlinkStyle}>
                   <FaCalculator size={24} className="shrink-0" />
-                  <Link to="/calculator">Calculator</Link>
+                  <Link to="/">Calculator</Link>
                 </li>
                 <li className={navlinkStyle}>
                   <BiTask size={24} className="shrink-0" />
@@ -79,12 +74,8 @@ const Navbar = () => {
               <ul className="flex flex-col items-center gap-2">
                 <div>
                   <li className={navlinkStyle}>
-                    <CiHome size={24} />
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li className={navlinkStyle}>
                     <FaCalculator size={24} />
-                    <Link to="/calculator">Calculator</Link>
+                    <Link to="/">Calculator</Link>
                   </li>
                   <li className={navlinkStyle}>
                     <BiTask size={24} />
