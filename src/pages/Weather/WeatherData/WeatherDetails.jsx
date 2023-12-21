@@ -36,7 +36,7 @@ const WeatherDetails = ({ data }) => {
 
   return (
     <div className="w-full p-3 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
-      <div className=" space-y-4 h md:space-y-6  sm:p-4">
+      <div className=" space-y-4 h md:space-y-6  ">
         <div className="flex flex-col">
           <div className="flex gap-5 mb-5 text-center p-2 ">
             <Card title={"Temps °C (High / Low)"}>

@@ -39,106 +39,76 @@ const Calculator = () => {
     }
   };
 
+  const numberBtn =
+    "bg-gray-700 text-white mx-2 my-3 w-auto rounded-3xl px-1 py-2 text-md font-bold md:text-lg hover:bg-white hover:text-black  transition duration-200";
+
   return (
-    <section className="container mx-auto flex flex-col justify-center mt-10 w-full  lg:w-1/4  md:w-1/2 ">
-      <div className=" bg-blue-500 p-3 m-2 rounded-lg ">
+    <section className="container mx-auto flex flex-col justify-center mt-10 w-full md:w-2/5 lg:w-1/3 xl:w-96">
+      <div className=" bg-black p-3 m-2 rounded-lg sm:mx-20 md:mx-0">
         <div className="flex flex-col bg-white rounded-lg mx-2 my-5 p-5">
           <h1 className="grow text-end font-bold text-lg ">{input}</h1>
-          <h1 className="grow text-end font-bold text-lg ">{result}</h1>
+          <h1 className="grow text-end font-bold text-xl ">{result}</h1>
         </div>
         <div className="grid grid-cols-4 ">
-          <button
-            className="bg-white mx-2 my-3 p-2w-auto rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("7")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("7")}>
             7
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg"
-            onClick={() => handleButtonClick("8")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("8")}>
             8
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("9")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("9")}>
             9
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+            className="bg-gray-400  mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg "
             onClick={handleDelete}
           >
             Del
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("4")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("4")}>
             4
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("5")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("5")}>
             5
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("6")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("6")}>
             6
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+            className="bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg "
             onClick={() => handleButtonClick("+")}
           >
             +
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("1")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("1")}>
             1
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("2")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("2")}>
             2
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("3")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("3")}>
             3
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+            className="bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg "
             onClick={() => handleButtonClick("-")}
           >
             -
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick(".")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick(".")}>
             .
           </button>
-          <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
-            onClick={() => handleButtonClick("0")}
-          >
+          <button className={numberBtn} onClick={() => handleButtonClick("0")}>
             0
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+            className="bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg "
             onClick={() => handleButtonClick("/")}
           >
             /
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-md font-bold md:text-lg "
+            className="bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg "
             onClick={() => handleButtonClick("*")}
           >
             X
@@ -146,13 +116,13 @@ const Calculator = () => {
         </div>
         <div className="flex">
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-lg font-bold grow"
+            className="bg-gray-400 mx-2 my-3 p-5 rounded-3xl text-lg font-bold grow"
             onClick={handleClear}
           >
             Reset
           </button>
           <button
-            className="bg-white mx-2 my-3 p-5 rounded-lg text-lg font-bold grow"
+            className="bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-lg font-bold grow"
             onClick={handleCalculate}
           >
             =

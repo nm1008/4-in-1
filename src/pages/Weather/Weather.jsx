@@ -47,13 +47,13 @@ const Weather = () => {
   };
 
   return (
-    <section className="container mx-auto my-10">
-      <div className="border-2 shadow-md flex flex-col items-center justify-center my-12 mx-24 lg:py-0 ">
-        <h1 className="text-2xl font-bold mb-5 py-5">Simple Weather App</h1>
-        <div className="flex items-center justify-center mb-5 w-full">
+    <section className="container mx-auto my-10 flex items-center flex-col">
+      <div className="w-5/6 border-2 shadow-md my-12 lg:py-0 md:w-1/2">
+        <h1 className="font-bold mb-5 py-5 text-center text-lg">Simple Weather App</h1>
+        <div className="flex flex-col gap-5 items-center justify-center mb-5 w-full md:flex-row">
           <input
             type="text"
-            className=" w-3/4 h-12 pl-5 rounded-md font-md border-4 md:w-1/2 "
+            className=" w-3/4 h-12 pl-3 rounded-md font-md border-4 md:w-1/2 md:pl-5 "
             placeholder="Search city name here.."
             onChange={(e) => setCountry(e.target.value)}
           />
@@ -63,7 +63,7 @@ const Weather = () => {
           </Button>
         </div>
       </div>
-      <div className="flex flex-wrap items-center gap-10 md:flex-nowrap">
+      <div className="flex flex-wrap items-start gap-10 md:flex-nowrap">
         <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
           <h1 className="text-center text-3xl font-bold mb-5">Weather</h1>
           {loading === true ? (
