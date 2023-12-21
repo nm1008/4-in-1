@@ -25,12 +25,6 @@ const Navbar = () => {
             <a href="#" className="text-md font-medium px-3 py-2 text-white">
               4-in-1
             </a>
-            <Link
-              to="/"
-              className="text-black font-semibold dark:text-white dark:font-bolder"
-            >
-              Simply Book
-            </Link>
           </div>
           <div className="hidden md:block text-white">
             <div className="flex items-baseline space-x-4 ">
@@ -71,8 +65,8 @@ const Navbar = () => {
         {open && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <ul className="flex flex-col items-center gap-2">
-                <div>
+              <ul className="flex flex-col items-center">
+                <div className="text-white flex flex-col gap-3">
                   <li className={navlinkStyle}>
                     <FaCalculator size={24} />
                     <Link to="/">Calculator</Link>

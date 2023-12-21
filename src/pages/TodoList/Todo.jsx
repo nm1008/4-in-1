@@ -59,16 +59,16 @@ const Todo = () => {
   return (
     <section className="h-screen bg-gradient-to-b from-cyan-500 to-blue-500">
       <div className="container mx-auto py-12">
-        <div className=" flex flex-col items-center justify-center px-6 pt-12 lg:py-0 ">
+        <div className=" flex flex-col items-center justify-center px-6 pt-5 lg:py-0 md:pt-12">
           <h1 className="text-black flex items-center mb-6 text-3xl font-bold tracking-wide">
             Simple Todo App
           </h1>
-          <div className="w-full p-5 bg-gray-50 rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-lg xl:p-0">
-            <div className=" py-5 flex items-center justify-center flex-col space-y-4 md:">
+          <div className="w-full px-3 pb-5 bg-gray-50 rounded-lg shadow-xl dark:border md:mt-0 md:p-5 sm:max-w-lg xl:p-0">
+            <div className=" py-0 flex items-center justify-center flex-col space-y-4 md:py-5">
               <input
                 type="text"
                 className=" w-3/4 h-12 pl-5 rounded-md font-md border-4 mt-5"
-                placeholder="Enter a task"
+                placeholder="Enter a task..."
                 onChange={(e) => setUserInput(e.target.value)}
                 value={userInput}
               />
@@ -87,7 +87,7 @@ const Todo = () => {
               </div>
               <div
                 className={`${
-                  todoList.length > 0 ? "border-2 shadow-md w-3/4 py-2 " : ""
+                  todoList.length > 0 ? "border-2 shadow-md w-full md:w-3/4 py-2 " : ""
                 }`}
               >
                 {todoList.map((task, index) => (

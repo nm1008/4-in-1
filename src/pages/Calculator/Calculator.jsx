@@ -45,7 +45,9 @@ const Calculator = () => {
   const funcButton =
     "bg-gray-400  mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg hover:bg-white hover:text-black  transition duration-200";
 
-  const operatorBtn = " bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg  hover:bg-white hover:text-black  transition duration-200"
+  const operatorBtn =
+    " bg-amber-500 mx-2 my-3 p-5 rounded-3xl text-md font-bold md:text-lg  hover:bg-white hover:text-black  transition duration-200";
+    
   return (
     <section className=" h-screen bg-gradient-to-b from-cyan-500 to-blue-500">
       <div className="container mx-auto flex flex-col justify-center pt-10 w-full md:w-2/5 lg:w-1/3 xl:w-96">
@@ -150,16 +152,10 @@ const Calculator = () => {
             </button>
           </div>
           <div className="flex">
-            <button
-              className={`${funcButton} grow`}
-              onClick={handleClear}
-            >
+            <button className={`${funcButton} grow`} onClick={handleClear}>
               Reset
             </button>
-            <button
-              className={`${operatorBtn} grow`}
-              onClick={handleCalculate}
-            >
+            <button className={`${operatorBtn} grow`} onClick={handleCalculate}>
               =
             </button>
           </div>

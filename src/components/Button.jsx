@@ -3,7 +3,7 @@ const Button = ({ children, onClick, color }) => {
     <div>
       <button
         onClick={onClick}
-        className={`p-2 text-sm  mt-0  text-white rounded-lg ${color} md:px-5 md:text-lg`}
+        className={`px-2 py-3 text-sm  mt-0  text-white rounded-lg ${color} md:px-3 md:text-md`}
       >
         {children}
       </button>
