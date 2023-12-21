@@ -35,8 +35,8 @@ const Todo = () => {
         return index !== i;
       });
       setTodoList(filtered);
-      setEditIndex(null)
-      setUserInput("")
+      setEditIndex(null);
+      setUserInput("");
     }
   };
 
@@ -57,42 +57,50 @@ const Todo = () => {
   };
 
   return (
-    <section className="container mx-auto ">
-      <div className=" flex flex-col items-center justify-center mt-12 px-6 py-8 lg:py-0 ">
-        <a
-          href="#"
-          className="text-black flex items-center mb-6 text-2xl font-semibold "
-        >
-          Simple Todo App
-        </a>
-        <div className="w-full p-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
-          <div className=" space-y-4 md:space-y-6 sm:p-8">
-            <input
-              type="text"
-              className=" w-full h-12 pl-5 rounded-md font-md border-4"
-              placeholder="Enter a task"
-              onChange={(e) => setUserInput(e.target.value)}
-              value={userInput}
-            />
-            <div className="flex gap-10 justify-center">
-              <Button color={editIndex === null ? "bg-blue-600" : "bg-amber-600"} onClick={handleAddTask}>
-                {editIndex === null ? "Add task" : "Edit task"}
-              </Button>
-              {todoList.length > 0 && (
-                <Button color={"bg-red-600"} onClick={handleClearAllTask}>Clear All</Button>
-              )}
-            </div>
-            <div className={`${todoList.length > 0 ? "border-2" : ""}`}>
-              {todoList.map((task, index) => (
-                <TodoTask
-                  key={index}
-                  number={index}
-                  task={task}
-                  editIndex={editIndex}
-                  handleDeleteTask={() => handleDeleteTask(index)}
-                  handleEditTask={() => handleEditTask(index)}
-                />
-              ))}
+    <section className="h-screen bg-gradient-to-b from-cyan-500 to-blue-500">
+      <div className="container mx-auto py-12">
+        <div className=" flex flex-col items-center justify-center px-6 pt-12 lg:py-0 ">
+          <h1 className="text-black flex items-center mb-6 text-3xl font-bold tracking-wide">
+            Simple Todo App
+          </h1>
+          <div className="w-full p-5 bg-gray-50 rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-lg xl:p-0">
+            <div className=" py-5 flex items-center justify-center flex-col space-y-4 md:">
+              <input
+                type="text"
+                className=" w-3/4 h-12 pl-5 rounded-md font-md border-4 mt-5"
+                placeholder="Enter a task"
+                onChange={(e) => setUserInput(e.target.value)}
+                value={userInput}
+              />
+              <div className="flex gap-2 md:gap-5">
+                <Button
+                  color={editIndex === null ? "bg-blue-600" : "bg-amber-600"}
+                  onClick={handleAddTask}
+                >
+                  {editIndex === null ? "Add task" : "Edit task"}
+                </Button>
+                {todoList.length > 0 && (
+                  <Button color={"bg-red-600"} onClick={handleClearAllTask}>
+                    Clear All
+                  </Button>
+                )}
+              </div>
+              <div
+                className={`${
+                  todoList.length > 0 ? "border-2 shadow-md w-3/4 py-2 " : ""
+                }`}
+              >
+                {todoList.map((task, index) => (
+                  <TodoTask
+                    key={index}
+                    number={index}
+                    task={task}
+                    editIndex={editIndex}
+                    handleDeleteTask={() => handleDeleteTask(index)}
+                    handleEditTask={() => handleEditTask(index)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

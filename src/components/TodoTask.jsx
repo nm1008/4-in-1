@@ -8,7 +8,7 @@ const TodoTask = ({
   editIndex,
 }) => {
   return (
-    <div className="flex flex-col w-full gap-3 justify-between items-center py-3 md:flex-row ">
+    <div className="flex flex-col gap-3 justify-between items-center py-3 md:flex-row ">
       <h1 className="font-bold md:ml-5">
         {number + 1}. {task}
       </h1>

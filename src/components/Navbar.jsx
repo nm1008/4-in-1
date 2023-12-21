@@ -18,11 +18,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
+    <nav className="bg-gray-800">
       <div className=" px-4 sm:px-6 lg:px-8 ">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2 ">
-            <a href="#" className="text-md font-medium px-3 py-2 ">
+            <a href="#" className="text-md font-medium px-3 py-2 text-white">
               4-in-1
             </a>
             <Link
@@ -32,7 +32,7 @@ const Navbar = () => {
               Simply Book
             </Link>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:block text-white">
             <div className="flex items-baseline space-x-4 ">
               <ul className="flex gap-2">
                 <li className={navlinkStyle}>
