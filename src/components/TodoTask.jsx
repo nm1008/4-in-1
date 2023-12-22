@@ -1,4 +1,4 @@
-const todoButton = "px-4 py-3 text-sm  mt-0  text-white rounded-lg md:px-3 md:text-md";
+const todoButton = "px-4g py-3 text-sm  mt-0  text-white rounded-lg md:px-3 md:text-md";
 
 const TodoTask = ({
   task,

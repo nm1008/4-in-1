@@ -6,6 +6,8 @@ const CountdownTimer = () => {
   const [countDownSeconds, setCountDownSeconds] = useState(10);
   const [timer, setTimer] = useState(false);
 
+  const audio = new Audio("")
+
   useEffect(() => {
     let intervalId;
 
@@ -18,7 +20,7 @@ const CountdownTimer = () => {
         setTimer(false);
       }
     };
-    
+
     intervalId = setInterval(() => {
       handleCountDown();
     }, 1000);
@@ -30,6 +32,9 @@ const CountdownTimer = () => {
 
   const handleStartTimer = () => {
     setTimer(true);
+    if(setCountDownSeconds < 3){
+      audio.play()
+    }
   };
 
   const handleStopTimer = () => {
@@ -47,15 +52,16 @@ const CountdownTimer = () => {
 
   return (
     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
-      <div className=" space-y-4 md:space-y-6 sm:p-5">
-        <div className="flex gap-10 justify-center flex-col items-center ">
+      <div className=" space-y-4 md:space-y-6 ">
+        <div className="flex gap-10 justify-center flex-col items-center px-3 py-5 ">
           {countDownSeconds !== 0 ? (
             <>
-              <h1 className="text-2xl font-bold md:text-3xl ">
+              <h1 className="text-3xl font-bold md:text-4xl md:pt-2 ">
                 {countDownSeconds <= 1
                   ? `${countDownSeconds} second`
                   : `${countDownSeconds} seconds`}
               </h1>
+            
               <div className="flex gap-3">
                 <Button color={"bg-blue-600"} onClick={handleStartTimer}>
                   Start
@@ -67,7 +73,7 @@ const CountdownTimer = () => {
                   Reset
                 </Button>
               </div>
-              <div className="flex gap-3 text-center mb-5 md:flex-row">
+              <div className="flex gap-3 text-center  md:flex-row">
                 <Button
                   color={"bg-green-600"}
                   onClick={() => handleSetTimer(10)}

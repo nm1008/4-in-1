@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "../../../components/Card";
+import { DNA } from "react-loader-spinner";
 
-const WeatherDetails = ({ data }) => {
-  console.log(data);
+const WeatherDetails = ({ data, loading }) => {
+  // console.log(data);
 
   const [sunrise, setSunrise] = useState("");
   const [sunset, setSunset] = useState("");
@@ -15,7 +16,6 @@ const WeatherDetails = ({ data }) => {
       const date = new Date(time * 1000);
       let hours = date.getHours();
       const minutes = date.getMinutes();
-
 
       hours = hours % 12 || 12;
 
@@ -35,21 +35,69 @@ const WeatherDetails = ({ data }) => {
   }, [timeAm, timePm]);
 
   return (
-    <div className="w-full p-3 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
+    <div className="w-full p-5 bg-white rounded-lg shadow md:w-full lg:w-5/6">
       <div className=" space-y-4 h md:space-y-6  ">
         <div className="flex flex-col">
           <div className="flex gap-5 mb-5 text-center p-2 ">
             <Card title={"Temps °C (High / Low)"}>
-              {data?.main?.temp_max.toFixed(1)}°C / {data?.main?.temp_min.toFixed(1)}°C
+              {loading ? (
+                <DNA
+                  visible={true}
+                  height="40"
+                  width="40"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                />
+              ) : (
+                `${data?.main?.temp_max.toFixed(
+                  1
+                )}°C / ${data?.main?.temp_min.toFixed(1)}°C`
+              )}
             </Card>
             <Card title={"Humidity / hPA"}>
-              {data?.main?.humidity}% / {data?.main?.pressure}
+              {loading ? (
+                <DNA
+                  visible={true}
+                  height="40"
+                  width="40"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                />
+              ) : (
+                `${data?.main?.humidity}% / ${data?.main?.pressure}`
+              )}
             </Card>
           </div>
           <div className="flex gap-5 mb-5  text-center">
-            <Card title={"Wind speed"}>{data?.wind?.speed} m/s</Card>
+            <Card title={"Wind speed"}>
+              {loading ? (
+                <DNA
+                  visible={true}
+                  height="40"
+                  width="40"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                />
+              ) : (
+                `${data?.wind?.speed} m/s`
+              )}
+            </Card>
             <Card title={"Sunrise / Sunset"}>
-              {sunrise}AM / {sunset}PM
+              {loading ? (
+                <DNA
+                  visible={true}
+                  height="40"
+                  width="40"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                />
+              ) : (
+                `${sunrise}AM / ${sunset}PM`
+              )}
             </Card>
           </div>
         </div>

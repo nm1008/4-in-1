@@ -8,10 +8,9 @@ const Weather = () => {
   const [country, setCountry] = useState("Manila");
   const [selectedCountry, setSelectedCountry] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log(selectedCountry);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${
@@ -29,7 +28,7 @@ const Weather = () => {
   }, []);
 
   const handleSearchCountry = async () => {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${
@@ -46,35 +45,38 @@ const Weather = () => {
       });
   };
 
-  return (
-    <section className="container mx-auto my-10 flex items-center flex-col">
-      <div className="w-5/6 border-2 shadow-md my-12 lg:py-0 md:w-1/2">
-        <h1 className="font-bold mb-5 py-5 text-center text-lg">Simple Weather App</h1>
-        <div className="flex flex-col gap-5 items-center justify-center mb-5 w-full md:flex-row">
-          <input
-            type="text"
-            className=" w-3/4 h-12 pl-3 rounded-md font-md border-4 md:w-1/2 md:pl-5 "
-            placeholder="Search city name here.."
-            onChange={(e) => setCountry(e.target.value)}
-          />
 
-          <Button onClick={handleSearchCountry} color={"bg-blue-600"}>
-            Search
-          </Button>
+
+  return (
+    <section className="h-full bg-gradient-to-b from-cyan-500 to-blue-500 md:h-screen">
+      <div className="container mx-auto py-5 flex items-center flex-col">
+        <h1 className="font-bold mb-5 py-5 text-center text-md md:text-3xl">
+          React Weather App
+        </h1>
+        <div className="w-5/6 lg:py-0 md:w-5/6">
+          <div className="flex flex-col gap-5 items-center justify-center p-5 mb-5 w-full md:flex-row">
+            <input
+              type="text"
+              className="text-center w-full h-14  rounded-3xl font-md border-4 md:w-full md:pl-5 md:text-left lg:w-3/4"
+              placeholder="Search city name here.."
+              onChange={(e) => setCountry(e.target.value)}
+            />
+
+            <Button onClick={handleSearchCountry} color={"bg-blue-600"}>
+              Search
+            </Button>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-wrap items-start gap-10 md:flex-nowrap">
-        <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
-          <h1 className="text-center text-3xl font-bold mb-5">Weather</h1>
-          {loading === true ? (
-            <h1>Loading details</h1>
-          ) : (
-            <WeatherInfo data={selectedCountry}/>
-          )}
-        </div>
-        <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
-          <h1 className="text-center text-3xl font-bold mb-5">Details</h1>
-          <WeatherDetails data={selectedCountry}/>
+        <div className="w-full flex flex-wrap items-start gap-10 md:flex-nowrap">
+          <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
+            <h1 className="text-center text-3xl font-bold mb-5">Weather</h1>
+
+            <WeatherInfo data={selectedCountry} loading={loading}/>
+          </div>
+          <div className="w-full flex items-center justify-center flex-col md:w-1/2 mx-5">
+            <h1 className="text-center text-3xl font-bold mb-5">Details</h1>
+            <WeatherDetails data={selectedCountry} loading={loading} />
+          </div>
         </div>
       </div>
     </section>
